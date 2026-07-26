@@ -3,75 +3,39 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>👑 Python Master Challenge</title>
+<title>Python Master Challenge</title>
 
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
 
-
-<!-- =========================================
-                HEADER
-========================================= -->
+<!-- ===================================================
+                    HEADER
+==================================================== -->
 
 <header class="header">
 
     <div class="logo">
 
-        👑 Python Master Challenge
+        🏆 Python Master Challenge
 
     </div>
 
+    <div class="playerPanel">
 
-    <div class="playerSection">
+        👤 <span id="playerName">Guest</span>
 
-        <div>
+        &nbsp;&nbsp;&nbsp;
 
-            👤 Player
-
-            <span id="playerName">
-
-                Guest
-
-            </span>
-
-        </div>
-
-
-        <div>
-
-            ⭐ XP
-
-            <span id="playerXP">
-
-                0
-
-            </span>
-
-        </div>
-
-
-        <div>
-
-            🪙 Coins
-
-            <span id="playerCoins">
-
-                0
-
-            </span>
-
-        </div>
+        ⏱️ <span id="timer">00:00</span>
 
     </div>
 
@@ -79,290 +43,307 @@
 
 
 
+<!-- ===================================================
+                MAIN CONTAINER
+==================================================== -->
+
+<div class="container">
 
 
-<!-- =========================================
-            CHALLENGE INFORMATION
-========================================= -->
+<!-- ===================================================
+            LEFT QUESTION PALETTE
+==================================================== -->
 
-<section class="challengeBar">
+<aside class="leftPanel">
 
-    <div>
+<h2>Questions</h2>
 
-        Difficulty
+<div id="questionPalette">
 
-        <span id="difficulty">
+<!-- Created by app.js -->
 
-            Easy
+</div>
 
-        </span>
-
-    </div>
+</aside>
 
 
-    <div>
 
-        Attempt
+<!-- ===================================================
+            MAIN QUESTION AREA
+==================================================== -->
 
-        <span id="attemptID">
-
-            ----
-
-        </span>
-
-    </div>
+<section class="mainPanel">
 
 
-    <div>
+<div class="topBar">
 
-        Time Left
+<div>
 
-        <span id="timer">
+Question
 
-            60:00
+<span id="questionNumber">
 
-        </span>
+1
 
-    </div>
+</span>
+
+/
+
+<span id="totalQuestions">
+
+10
+
+</span>
+
+</div>
+
+
+<div>
+
+Progress
+
+<span id="progress">
+
+0%
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<h2 id="battleTitle">
+
+Question Title
+
+</h2>
+
+
+<div id="questionText">
+
+Question will appear here...
+
+</div>
+
+
+
+<!-- ================================
+        CODE EDITOR
+================================ -->
+
+<div id="codingArea">
+
+</div>
+
+
+
+<!-- ================================
+            OUTPUT
+================================ -->
+
+<h3>
+
+Program Output
+
+</h3>
+
+<pre id="programOutput">
+
+Run your code...
+
+</pre>
+
+
+
+<!-- ================================
+        TEST RESULT
+================================ -->
+
+<h3>
+
+Test Case Result
+
+</h3>
+
+<div id="testResult">
+
+Waiting...
+
+</div>
+
+
+
+<!-- ================================
+        NAVIGATION
+================================ -->
+
+<div class="navigation">
+
+<button id="previousBtn">
+
+⬅ Previous
+
+</button>
+
+
+<button id="runBtn">
+
+▶ Run Code
+
+</button>
+
+
+<button id="submitBtn">
+
+✅ Submit
+
+</button>
+
+
+<button id="nextBtn">
+
+Next ➡
+
+</button>
+
+</div>
 
 
 </section>
 
 
+</div>
 
 
 
-<!-- =========================================
-            QUESTION NAVIGATION
-========================================= -->
+<!-- ===================================================
+                RESULT MODAL
+==================================================== -->
 
-<section class="navigation">
+<div id="resultModal" class="modal">
 
-    <button id="previousQuestion">
+<div class="modalContent">
 
-        ◀ Previous
+<h2>
 
-    </button>
+🏆 Challenge Completed
 
+</h2>
 
-    <div class="questionStatus">
 
-        <button class="questionBtn" id="q1">1</button>
-        <button class="questionBtn" id="q2">2</button>
-        <button class="questionBtn" id="q3">3</button>
-        <button class="questionBtn" id="q4">4</button>
-        <button class="questionBtn" id="q5">5</button>
-        <button class="questionBtn" id="q6">6</button>
-        <button class="questionBtn" id="q7">7</button>
-        <button class="questionBtn" id="q8">8</button>
-        <button class="questionBtn" id="q9">9</button>
-        <button class="questionBtn" id="q10">10</button>
+<p>
 
-    </div>
+Player :
 
+<span id="resultPlayer">
 
-    <button id="nextQuestion">
+</span>
 
-        Next ▶
+</p>
 
-    </button>
 
-</section>
+<p>
 
+Questions Passed :
 
+<span id="resultPassed">
 
+0
 
+</span>
 
-<!-- =========================================
-            QUESTION AREA
-========================================= -->
+</p>
 
-<section class="questionPanel">
 
-    <h2 id="questionTitle">
+<p>
 
-        Loading...
+Questions Failed :
 
-    </h2>
+<span id="resultFailed">
 
+0
 
-    <div class="questionMeta">
+</span>
 
-        <span id="questionID">
+</p>
 
-            E001
 
-        </span>
+<p>
 
-        <span id="questionTopic">
+Accuracy :
 
-            Python Basics
+<span id="resultAccuracy">
 
-        </span>
+0%
 
-    </div>
+</span>
 
+</p>
 
-    <div id="problemStatement">
 
-    </div>
+<p>
 
+XP Earned :
 
-    <div class="exampleBox">
+<span id="resultXP">
 
-        <h3>
+0
 
-            Sample Input
+</span>
 
-        </h3>
+</p>
 
-        <pre id="sampleInput"></pre>
 
+<p>
 
-        <h3>
+Coins Earned :
 
-            Sample Output
+<span id="resultCoins">
 
-        </h3>
+0
 
-        <pre id="sampleOutput"></pre>
+</span>
 
-    </div>
+</p>
 
 
-    <div class="constraintBox">
+<p>
 
-        <h3>
+Time Taken :
 
-            Constraints
+<span id="resultTime">
 
-        </h3>
+00:00
 
-        <div id="constraints">
+</span>
 
-        </div>
+</p>
 
-    </div>
 
-</section>
+<button id="downloadCSV">
 
+📄 Download Report
 
+</button>
 
 
+<button id="finishChallenge">
 
-<!-- =========================================
-            CODE EDITOR
-========================================= -->
+🏠 Return to Arena
 
-<section class="editorSection">
+</button>
 
-    <h2>
+</div>
 
-        🐍 Python Editor
+</div>
 
-    </h2>
 
-
-    <textarea
-
-        id="codeEditor"
-
-        spellcheck="false"
-
-    ></textarea>
-
-</section>
-
-
-
-
-
-<!-- =========================================
-                ACTION BUTTONS
-========================================= -->
-
-<section class="actionButtons">
-
-    <button id="runButton">
-
-        ▶ Run Code
-
-    </button>
-
-
-    <button id="submitButton">
-
-        ✅ Submit Solution
-
-    </button>
-
-
-    <button id="resetButton">
-
-        🔄 Reset Code
-
-    </button>
-
-</section>
-
-
-
-
-
-<!-- =========================================
-                CONSOLE
-========================================= -->
-
-<section class="consoleSection">
-
-    <h2>
-
-        Console
-
-    </h2>
-
-
-    <pre id="consoleOutput">
-
-Waiting for execution...
-
-    </pre>
-
-</section>
-
-
-
-
-
-<!-- =========================================
-                FOOTER
-========================================= -->
-
-<footer>
-
-    Python Master Challenge Version 2.2
-
-</footer>
-
-
-
-
-
-<!-- =========================================
-            PYODIDE
-========================================= -->
 
 <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
 
-
-
-
-
-<!-- =========================================
-            APPLICATION
-========================================= -->
-
-<script src="js/app.js"></script>
+<script src="app.js"></script>
 
 </body>
 
